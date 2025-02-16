@@ -12,6 +12,8 @@ def setsonarstuff():
     print("Volume Data:", volume_data)
     time.sleep(10)
     print("sleep done")
+
+    #this fixes devices that got fucked up
     sonar.set_streamer_mode(True)
     sonar.set_streamer_mode(False)
     volume_data = sonar.get_volume_data()
@@ -19,6 +21,7 @@ def setsonarstuff():
     print("stop")
 
 
+#loop forever waiting for a usb device you care about to change
 def watchForChanges():
     all_hids = hid.find_all_hid_devices()
     found = False
